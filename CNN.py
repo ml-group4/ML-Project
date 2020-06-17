@@ -1,3 +1,7 @@
+'''If anyone wants to run this code, they can simply copy the code in Jupyter/Colab/any python IDE of their choice
+Just have to change the 'train_path' variable
+NOTE: If using Google Colab, upload the desired dataset on your google drive, right click on the dataset (in drive) will give you an
+option of path. Copy that path and assign it to the 'train_path' vairable in the script'''
 import numpy as np
 import pandas as pd
 import os
