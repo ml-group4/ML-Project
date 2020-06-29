@@ -1,3 +1,12 @@
+'''If anyone wants to run this code, they can simply copy the code in Jupyter/Colab/any python IDE of their choice
+Just have to change the 'train_path' variable
+NOTE: >Saved trained model is used in this code, that is, the model was first trained and then saved in the local machine. Saved model is used so as to save time spend in trainng
+       the model repeatedly. 
+      >Model was saved using joblib library, you can refer to it's documentaion for further information. 
+      >The entire code is functional, however just to check if the model really predicts the correct class of a random image of traffic signs(downloaded from google), 
+       therefore most of the code is commented. Feel free to uncomment it and run/ modify it.
+      >If using Google Colab, upload the desired dataset on your google drive, right click on the dataset (in drive) will give you an
+       option of path. Copy that path and assign it to the 'train_path' vairable in the script'''
 import joblib
 import numpy as np
 import pandas as pd
@@ -79,7 +88,7 @@ test_labels = np.array(test_labels)
 test_labels = pd.get_dummies(test_labels).values
 #print(test_labels)
 
-
+#Since model has already beeen created and saved therefore no need to create it again
 # Creating a Sequential model
 '''model = Sequential()
 model.add(Conv2D(32, kernel_size=3, activation='relu', input_shape=(50, 50, 3)))
@@ -108,6 +117,7 @@ model.compile(
 # Training the model
 #history = model.fit(train_images, train_labels, epochs=10,batch_size=50,validation_data=(test_images,test_labels))
 
+
 #final_model = 'C://Users//Administrator//Desktop//ML_project//model//finalized_model.sav'
 # save the model to disk
 #joblib.dump(model, final_model)
@@ -118,17 +128,24 @@ model.compile(
 checkImage = test_images[index -1 : index]
 checklabel = test_labels[index -1 : index]'''
 
+
 unkown_img_test = []
+#Read the image(downloaded form internet) 
 unkown_img = cv2.imread('C://Users//Administrator//Desktop//ML_project//20200622_231946-1.jpg')
+#Resizing the image
 unkown_img = cv2.resize(unkown_img, shape)
 unkown_img_test.append(unkown_img)
 checkImage = unkown_img_test[0 : 1]
 # load the model from disk
 loaded_model = joblib.load('C://Users//Administrator//Desktop//ML_project//model//finalized_model.sav')
 
+#predicting the closest class it belongs to
 predict = loaded_model.predict(np.array(checkImage))
 
 print("Predicted class of the input image :- ",np.argmax(predict))
+
+#For me the output came out to be 25, that is , according to this model that random image belongs to class 25
+#opening any image of class 25 to compare if the input image(downloaded one) really belongs to class 25
 unknown_img_show = []
 img = cv2.imread('C://Users//Administrator//Desktop//ML_project//Training_set//GTSRB//Final_Training//Images//00025//00000_00001.ppm')
 img = cv2.resize(img, shape)
