@@ -14,4 +14,4 @@ Presentation
 https://docs.google.com/presentation/d/18vVv-Ukz146iGJw-h4oOZf4obLEPzkI5/edit#slide=id.p5
 
 Presentation
-https://onedrive.live.com/edit.aspx?cid=b188154efabfd0c2&page=view&resid=B188154EFABFD0C2!438&parId=B188154EFABFD0C2!110&app=PowerPoint
+https://1drv.ms/p/s!AsLQv_pOFYixgzbvuZ9LB9rAzH2n
